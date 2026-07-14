@@ -267,8 +267,8 @@ jobs:
             done
             return 1
           }
-          if ! check_repo "${REPOS["OnePlusOSS"]}"; then
-            if ! check_repo "${REPOS["Dynamic"]}"; then
+          if ! check_repo "${REPOS["Dynamic"]}"; then
+            if ! check_repo "${REPOS["OnePlusOSS"]}"; then
               check_repo "${REPOS["Appendix"]}"
             fi
           fi
@@ -286,7 +286,7 @@ jobs:
           # 提取 CPU
           CPU=$(echo "$REVISION" | sed -E 's#^(oneplus|realme|oppo)/([^_]+).*#\2#')
           # 提取 ANDROID_VERSION
-          ANDROID_VERSION=$(echo "$REVISION" | grep -oP '\d{1,2}\.\d{1,2}(\.\d{1,2})?')
+          ANDROID_VERSION=16.0.0
           if [[ -n "$CPU" && -n "$ANDROID_VERSION" ]]; then
             echo "✅ CPU=$CPU, ANDROID_VERSION=$ANDROID_VERSION"
             echo "CPU=$CPU" >> $GITHUB_ENV
